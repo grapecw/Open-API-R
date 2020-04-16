@@ -150,4 +150,3 @@ df <- data.frame(json_obj)
 df <- df[-1]
 names(df) <- c("className", "unitName", "cycle", "keystatName", "dataValue")
 View(df)
-

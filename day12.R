@@ -153,6 +153,8 @@ mean(exam$math)  # math 평균 산출
 # 이상치 포함된 데이터 생성 - sex 3, score 6
 outlier <- data.frame(sex = c(1, 2, 1, 3, 2, 1),  score = c(5, 4, 3, 4, 2, 6)) 
 # 이상치 확인하기
+# 3이란 값은 있을 수 없다. 남자는 1 여자는 2
+# 객수를 세서 결측치를 판단한다.
 table(outlier$sex)
 
 table(outlier$score)
@@ -172,9 +174,14 @@ outlier %>%
   summarise(mean_score = mean(score))
 
 mpg <- as.data.frame(ggplot2::mpg)
+# 디폴트는 1.5배 이내의 값만 정상 값으로 판단하겠따.
 boxplot(mpg$hwy)
+# 통계치의 2배 이내의 볌위만 정상으로 판단 그 이상은 이상치로 판단한다
+boxplot(mpg$hwy, range =2)
 
 #상자그림 통계치 출력
+# 상자 그림의 리턴 값을 summary 해서 출력한다.
+# 리스트가 반환되고
 boxplot(mpg$hwy)$stats  # 상자그림 통계치 출력
 
 # 결측 처리하기
