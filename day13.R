@@ -84,13 +84,23 @@ wordcloud(words$keyword, words$freq,
           rot.per = 0.3, scale = c(4, 1), 
           # 색을 지정하는 부분
           colors = rainbow(7))
+
+# 동적인 그림을 그린다.
+# 빗자루 옆에 하면 브라우저로 켜짐
+# 글자 위에 올리면 할 수 있다.
+# 자바 스크립트로 클릭 이벤트 지정도 가능
 wordcloud2(words, fontFamily = "휴먼옛체")
+# rotateRatio = 1 : 100 프로 다 회전 시켜라. 얼마나 회선할지는 무작위
 wordcloud2(words,rotateRatio = 1)
 wordcloud2(words,rotateRatio = 0.5)
+# 글자 크기 세세하게 지정 불가. 글자 크기는 1
 wordcloud2(words,rotateRatio = 0)
 wordcloud2(words,size=0.5,col="random-dark")
 wordcloud2(words,size=0.5,col="random-dark", figPath="book/peace.png")
+# 백 그라운드 색을 지정
 wordcloud2(words,size=0.7,col="random-light",backgroundColor = "black")
+View(demoFreq)
+# demoFreq 데이터 빈도수를 알려준다다
 wordcloud2(data = demoFreq)
 wordcloud2(data = demoFreq, shape = 'diamond')
 wordcloud2(data = demoFreq, shape = 'star')
@@ -98,7 +108,9 @@ wordcloud2(data = demoFreq, shape = 'cardioid')
 wordcloud2(data = demoFreq, shape = 'triangle-forward')
 wordcloud2(data = demoFreq, shape = 'triangle')
 result<-wordcloud2(data = demoFreq, shape = 'pentagon')
-library("htmlwidgets")
+# 결과를 HTML을 만들어 내는 모든 명령의 도움을 주는 패키지
+library(htmlwidgets)
+# selfcontained는 다이나믹한 웹 페이지를 만들기 위해 필요한 모든 것을 저장해 줄까 라는 명령어어
 saveWidget(result,"tmpwc.html",selfcontained = F)
 head(demoFreq)
 str(demoFreq)
