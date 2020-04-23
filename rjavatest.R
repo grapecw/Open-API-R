@@ -15,5 +15,5 @@ y3<- extractNoun(y2)
 y3 <- Filter(function(x) {nchar(x) >= 2}, y3)
 yTable <- table(unlist(y3))
 yTable <- sort(yTable, decreasing = T)
-result = head(yTable, 10)
+result <- data.frame(head(yTable, 10))
 
