@@ -48,6 +48,7 @@ install.packages("ggplot2") # ggplot2 패키지 설치
 install.packages("glue") # ggplot2 로드시 이 패키지 오류나면 
 library(ggplot2)
 library(dplyr)
+library(htmltools)
 
 mpg <- as.data.frame(ggplot2::mpg)
 str(mpg)
