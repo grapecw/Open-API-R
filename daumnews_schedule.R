@@ -1,4 +1,3 @@
-
 url <- "https://media.daum.net/ranking/popular/"
 library(rvest)
 newsTitle <- NULL
@@ -22,3 +21,6 @@ for( i in 1:5) {
 
 newsDf<- data.frame(newsTitle, newsCom)
 newsDf
+
+temp <- source('C:/Alpha/Rstudy/daumnews_schedule.R', encoding="utf-8")
+write.csv(temp$value,"temp.txt")
